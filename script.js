@@ -1,4 +1,5 @@
 let selectedColor = 'rgb(0,0,0)';
+const clearBtnEl = document.querySelector('button[data-clear]').addEventListener('click', clearAll);
 
 function createPixelBoard(size, tableEl) {
   const pixelBoardEl = document.querySelector(tableEl);
@@ -15,7 +16,7 @@ function createPixelBoard(size, tableEl) {
 
   document.querySelectorAll('.pixel').forEach(pixel => {
     pixel.addEventListener('click', toPaint);
-    pixel.addEventListener('dblclick',toClean)
+    pixel.addEventListener('dblclick',toClean);
   });
 }
 
@@ -48,6 +49,12 @@ function toPaint(event) {
 function toClean(event) {
   event.target.style.backgroundColor = 'rgb(255,255,255)';
   selectedColor = 'rgb(0,0,0)';
+}
+
+function clearAll() {
+  document.querySelectorAll('.pixel').forEach(pixel => {
+    pixel.removeAttribute('style')
+  });
 }
 
 createPixelBoard(5, '#pixel-board');
