@@ -15,6 +15,7 @@ function createPixelBoard(size, tableEl) {
 
   document.querySelectorAll('.pixel').forEach(pixel => {
     pixel.addEventListener('click', toPaint);
+    pixel.addEventListener('dblclick',toClean)
   });
 }
 
@@ -42,6 +43,11 @@ function selectColor(event) {
 
 function toPaint(event) {
   event.target.style.backgroundColor = selectedColor;
+}
+
+function toClean(event) {
+  event.target.style.backgroundColor = 'rgb(255,255,255)';
+  selectedColor = 'rgb(0,0,0)';
 }
 
 createPixelBoard(5, '#pixel-board');
