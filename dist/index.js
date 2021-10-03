@@ -38,7 +38,7 @@ function toPaint(event) {
     event.target.style.backgroundColor = selectedColor;
 }
 function toClean(event) {
-    event.target.style.backgroundColor = 'rgb(255,255,255)';
+    event.target.style.backgroundColor = document.body.style.backgroundColor;
     selectedColor = 'rgb(0,0,0)';
 }
 function clearAll() {

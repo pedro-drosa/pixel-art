@@ -53,7 +53,7 @@ function toPaint(event: ToPaint): void {
 type ToClean = { target: { style: {backgroundColor: string} } }
 
 function toClean(event: ToClean): void {
-  event.target.style.backgroundColor = 'rgb(255,255,255)';
+  event.target.style.backgroundColor = document.body.style.backgroundColor;
   selectedColor = 'rgb(0,0,0)';
 }
 
