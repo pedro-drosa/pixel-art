@@ -1,7 +1,7 @@
 let selectedColor = 'rgb(0,0,0)';
 const clearBtnEl = document.querySelector('button[data-clear]').addEventListener('click', clearAll);
 
-function createPixelBoard(size, tableEl) {
+function createPixelBoard(size: number, tableEl: string): void {
   const pixelBoardEl = document.querySelector(tableEl);
 
   for (let i = 0; i < size; i++) {
@@ -14,13 +14,13 @@ function createPixelBoard(size, tableEl) {
     }
   }
 
-  document.querySelectorAll('.pixel').forEach(pixel => {
+  document.querySelectorAll('.pixel').forEach((pixel: any) => {
     pixel.addEventListener('click', toPaint);
     pixel.addEventListener('dblclick',toClean);
   });
 }
 
-function createColorPallet(colors, tableEl) {
+function createColorPallet(colors: string[], tableEl:string):void {
   const colorPaletteEl = document.querySelector(tableEl);
   const trEl = document.createElement('tr');
   colorPaletteEl.appendChild(trEl);
@@ -33,25 +33,29 @@ function createColorPallet(colors, tableEl) {
     trEl.appendChild(tdEl);
   });
 
-  document.querySelectorAll('.color').forEach(color => {
-    color.addEventListener('click', selectColor);
-  })
+  document.querySelectorAll('.color').forEach((color: any) => color.addEventListener('click', selectColor))
 }
 
-function selectColor(event) {
+type selectColor = { target: { getAttribute:(selector: string) => string} }
+
+function selectColor(event: selectColor): void {
   selectedColor = event.target.getAttribute('data-color');
 }
 
-function toPaint(event) {
+type ToPaint = { target: { style: { backgroundColor: string } } }
+
+function toPaint(event: ToPaint): void {
   event.target.style.backgroundColor = selectedColor;
 }
 
-function toClean(event) {
+type ToClean = { target: { style: {backgroundColor: string} } }
+
+function toClean(event: ToClean): void {
   event.target.style.backgroundColor = 'rgb(255,255,255)';
   selectedColor = 'rgb(0,0,0)';
 }
 
-function clearAll() {
+function clearAll(): void {
   document.querySelectorAll('.pixel').forEach(pixel => {
     pixel.removeAttribute('style')
   });

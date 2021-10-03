@@ -1,0 +1,10 @@
+{
+  "name": "pixelart",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "author": "pedro-drosa",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.4.3"
+  }
+}
