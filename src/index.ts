@@ -1,12 +1,14 @@
 let selectedColor = 'rgb(0,0,0)';
-const clearBtnEl = document.querySelector('button[data-clear]').addEventListener('click', clearAll);
+const clearBtnEl = document.querySelector('button[data-clear]');
+
+clearBtnEl?.addEventListener('click', clearAll);
 
 function createPixelBoard(size: number, tableEl: string): void {
   const pixelBoardEl = document.querySelector(tableEl);
 
   for (let i = 0; i < size; i++) {
     const trEl = document.createElement('tr');
-    pixelBoardEl.appendChild(trEl);
+    pixelBoardEl?.appendChild(trEl);
     for (let i = 0; i < size; i++) {
       const tdEl = document.createElement('td');
       tdEl.classList.add('pixel');
@@ -23,7 +25,7 @@ function createPixelBoard(size: number, tableEl: string): void {
 function createColorPallet(colors: string[], tableEl:string):void {
   const colorPaletteEl = document.querySelector(tableEl);
   const trEl = document.createElement('tr');
-  colorPaletteEl.appendChild(trEl);
+  colorPaletteEl?.appendChild(trEl);
 
   colors.forEach((color) => {
     const tdEl = document.createElement('td');
